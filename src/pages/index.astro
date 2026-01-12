@@ -1,11 +1,101 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl font-bold mb-4">IE Network 2026</h1>
+        <p class="text-xl mb-4">
+          "Sustainable Innovations for Smart Industries"
+        </p>
+        <p class="text-lg mb-8">May 13-15, 2026</p>
+        <p class="text-lg mb-8">
+          MIDA GRANDE HOTEL DHAVARAVADHI NA KHON PATHOM
+        </p>
+        <a
+          href="/submission"
+          class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg transition"
+        >
+          Submit Paper Now
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          About the Conference
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Conference Overview</h3>
+            <p class="text-gray-700 mb-4">
+              The IE Network 2026 Conference is the 44th annual conference
+              organized by the Industrial Engineering Network. It brings
+              together academics, researchers, and industry professionals to
+              share knowledge and innovations in Industrial Engineering.
+            </p>
+            <p class="text-gray-700 mb-4">
+              The conference has been held annually for over 20 years, providing
+              a platform for the exchange of research findings and best
+              practices in the field of Industrial Engineering.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">About IE Network</h3>
+            <p class="text-gray-700 mb-4">
+              The Industrial Engineering Network (IE Network) was founded in
+              October 1982 with support from the Engineering Institute of
+              Thailand. With over 40 member institutions throughout Thailand, it
+              serves as a leading organization for fostering collaboration and
+              knowledge exchange in the field of Industrial Engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-12 text-center">Quick Navigation</h2>
+        <div class="grid md:grid-cols-4 gap-6">
+          <a
+            href="/conference-topics"
+            class="bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-lg text-center transition transform hover:scale-105"
+          >
+            <h3 class="text-xl font-bold mb-2">Conference Topics</h3>
+            <p class="text-sm">Explore research areas</p>
+          </a>
+          <a
+            href="/important-dates"
+            class="bg-green-600 hover:bg-green-700 text-white p-6 rounded-lg text-center transition transform hover:scale-105"
+          >
+            <h3 class="text-xl font-bold mb-2">Important Dates</h3>
+            <p class="text-sm">Key deadlines</p>
+          </a>
+          <a
+            href="/submission"
+            class="bg-purple-600 hover:bg-purple-700 text-white p-6 rounded-lg text-center transition transform hover:scale-105"
+          >
+            <h3 class="text-xl font-bold mb-2">Submission</h3>
+            <p class="text-sm">Submit your paper</p>
+          </a>
+          <a
+            href="/contact"
+            class="bg-orange-600 hover:bg-orange-700 text-white p-6 rounded-lg text-center transition transform hover:scale-105"
+          >
+            <h3 class="text-xl font-bold mb-2">Contact Info</h3>
+            <p class="text-sm">Get in touch</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
