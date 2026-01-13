@@ -1,9 +1,9 @@
 name: ie_network_2027
 services:
   web:
-    build: .
+    image: nnnpooh/ie_network_2027:latest
     ports:
-      - "8080:80"
+      - "3010:80"
     restart: unless-stopped
     environment:
       - NODE_ENV=production
