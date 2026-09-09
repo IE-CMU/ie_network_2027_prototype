@@ -6,19 +6,34 @@ interface Props {
   locale: Locale
 }
 const { locale } = Astro.props
-
-const journals = [
+const journals_eng = [
   {
-    image: 'JLDSC.jpg',
-    url: 'https://ph03.tci-thaijo.org/index.php/JLDSC',
-    name: 'Journal of Logistics and Digital Supply Chain (JLDSC)',
+    image: 'ETH.jpg',
+    url: 'https://ph01.tci-thaijo.org/index.php/lej',
+    name: 'Engineering and Technology Horizons (ETH)',
+    ranking: 'Scopus / TCI 1',
+  },
+
+  {
+    image: 'NUEJ.jpg',
+    url: 'https://ph01.tci-thaijo.org/index.php/nuej',
+    name: 'Naresuan University Engineering Journal (NUEJ)',
     ranking: 'TCI 2',
   },
+]
+
+const journals_thai = [
   {
     image: 'TJOR.jpg',
     url: 'https://ph02.tci-thaijo.org/index.php/TJOR',
     name: 'Thai Journal of Operations Research (TJOR)',
     ranking: 'TCI 1',
+  },
+  {
+    image: 'JLDSC.jpg',
+    url: 'https://ph03.tci-thaijo.org/index.php/JLDSC',
+    name: 'Journal of Logistics and Digital Supply Chain (JLDSC)',
+    ranking: 'TCI 2',
   },
   {
     image: 'IENJ.jpg',
@@ -27,22 +42,10 @@ const journals = [
     ranking: 'TCI 2',
   },
   {
-    image: 'NUEJ.jpg',
-    url: 'https://ph01.tci-thaijo.org/index.php/nuej',
-    name: 'Naresuan University Engineering Journal (NUEJ)',
-    ranking: 'TCI 2',
-  },
-  {
     image: 'RMUTI.jpg',
     url: 'https://ph01.tci-thaijo.org/index.php/rmutijo',
     name: 'Research on Modern Science and Utilizing Technological Innovation Journal (RMUTI)',
     ranking: 'TCI 2',
-  },
-  {
-    image: 'ETH.jpg',
-    url: 'https://ph01.tci-thaijo.org/index.php/lej',
-    name: 'Engineering and Technology Horizons (ETH)',
-    ranking: 'TCI 1',
   },
 ]
 ---
@@ -100,9 +103,12 @@ const journals = [
           : 'Outstanding papers from the conference will be selected for publication in the following prestigious journals:'
       }
     </p>
+    <h3 class="mb-6 text-xl font-bold text-gray-900">
+      {locale === 'th' ? 'วารสารภาษาอังกฤษ' : 'English Journals'}
+    </h3>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        journals.map((journal) => (
+        journals_eng.map((journal) => (
           <article class="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-gray-200">
             <div class="aspect-[3/4] bg-gray-100 p-4">
               <a
@@ -121,9 +127,45 @@ const journals = [
               </a>
             </div>
             <div class="p-5">
-              <h3 class="text-lg font-semibold leading-snug text-gray-900">
+              <h4 class="text-lg font-semibold leading-snug text-gray-900">
                 {journal.name}
-              </h3>
+              </h4>
+              <p class="mt-2 text-sm font-medium text-blue-600">
+                {journal.ranking}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <h3 class="mb-6 mt-12 text-xl font-bold text-gray-900">
+      {locale === 'th' ? 'วารสารภาษาไทย' : 'Thai Journals'}
+    </h3>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        journals_thai.map((journal) => (
+          <article class="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-gray-200">
+            <div class="aspect-[3/4] bg-gray-100 p-4">
+              <a
+                href={journal.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${journal.name}`}
+                class="block h-full w-full overflow-hidden rounded-lg bg-white"
+              >
+                <img
+                  src={`/journals/${journal.image}`}
+                  alt={journal.name}
+                  class="h-full w-full object-cover transition-opacity hover:opacity-80"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-semibold leading-snug text-gray-900">
+                {journal.name}
+              </h4>
               <p class="mt-2 text-sm font-medium text-blue-600">
                 {journal.ranking}
               </p>
