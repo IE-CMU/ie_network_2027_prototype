@@ -1,0 +1,136 @@
+---
+import { type Locale } from '@utils/locale'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+interface Props {
+  locale: Locale
+}
+const { locale } = Astro.props
+
+const journals = [
+  {
+    image: 'JLDSC.jpg',
+    url: 'https://ph03.tci-thaijo.org/index.php/JLDSC',
+    name: 'Journal of Logistics and Digital Supply Chain (JLDSC)',
+    ranking: 'TCI 2',
+  },
+  {
+    image: 'TJOR.jpg',
+    url: 'https://ph02.tci-thaijo.org/index.php/TJOR',
+    name: 'Thai Journal of Operations Research (TJOR)',
+    ranking: 'TCI 1',
+  },
+  {
+    image: 'IENJ.jpg',
+    url: 'https://ph02.tci-thaijo.org/index.php/ienj',
+    name: 'Thai Industrial Engineering Network Journal (IENJ)',
+    ranking: 'TCI 2',
+  },
+  {
+    image: 'NUEJ.jpg',
+    url: 'https://ph01.tci-thaijo.org/index.php/nuej',
+    name: 'Naresuan University Engineering Journal (NUEJ)',
+    ranking: 'TCI 2',
+  },
+  {
+    image: 'RMUTI.jpg',
+    url: 'https://ph01.tci-thaijo.org/index.php/rmutijo',
+    name: 'Research on Modern Science and Utilizing Technological Innovation Journal (RMUTI)',
+    ranking: 'TCI 2',
+  },
+  {
+    image: 'ETH.jpg',
+    url: 'https://ph01.tci-thaijo.org/index.php/lej',
+    name: 'Engineering and Technology Horizons (ETH)',
+    ranking: 'TCI 1',
+  },
+]
+---
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <h1 class="text-4xl font-bold mb-8 text-center">
+    {locale === 'th' ? 'การตีพิมพ์' : 'Publication'}
+  </h1>
+
+  <!-- Proceeding Section -->
+  <section class="bg-gray-50 p-8 rounded-lg">
+    <h2 class="text-2xl font-bold mb-6">
+      {
+        locale === 'th'
+          ? 'การตีพิมพ์ในรายงานสืบเนื่องจากการประชุมวิชาการ'
+          : 'Conference Proceedings Publication'
+      }
+    </h2>
+    <p class="text-gray-700 mb-4">
+      {
+        locale === 'th'
+          ? 'บทความวิจัยที่ผ่านการประเมินจากผู้ทรงคุณวุฒิ (Peer Review) และได้รับการตอบรับให้เข้าร่วมเสนอผลงาน '
+          : 'Research papers that pass peer review and are accepted for presentation '
+      }
+      <strong>(Accept)</strong>
+      {
+        locale === 'th'
+          ? ' จะได้รับการตีพิมพ์ลงใน '
+          : ' will be published in the '
+      }
+      <strong>Proceedings of IE Network Conference 2028</strong>
+    </p>
+    <p class="text-gray-700">
+      {
+        locale === 'th'
+          ? 'ทั้งนี้ ผู้แต่งจะต้องดำเนินการปรับแก้บทความตามข้อเสนอแนะของผู้ทรงคุณวุฒิ ลงทะเบียนเข้าร่วมงาน และนำเสนอผลงานตามวันและเวลาที่ผู้จัดงานกำหนด จึงจะได้รับการรวมเล่มในรายงานสืบเนื่องจากการประชุมวิชาการ (Proceedings) ดังกล่าว'
+          : 'Authors must revise their papers according to the reviewers’ recommendations, register for the conference, and present their work on the date and time specified by the organizers in order for the paper to be included in the proceedings.'
+      }
+    </p>
+  </section>
+
+  <!-- Journal Section -->
+  <section class="mt-16 bg-gray-50 p-8 rounded-lg">
+    <h2 class="text-2xl font-bold mb-6">
+      {
+        locale === 'th'
+          ? 'การตีพิมพ์บทความคัดเลือก'
+          : 'Selected Paper Publication'
+      }
+    </h2>
+    <p class="text-gray-700 mb-6">
+      {
+        locale === 'th'
+          ? 'บทความที่โดดเด่นจากการประชุมจะได้รับการคัดเลือกเพื่อตีพิมพ์ในวารสารชั้นนำดังต่อไปนี้:'
+          : 'Outstanding papers from the conference will be selected for publication in the following prestigious journals:'
+      }
+    </p>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        journals.map((journal) => (
+          <article class="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-gray-200">
+            <div class="aspect-[3/4] bg-gray-100 p-4">
+              <a
+                href={journal.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${journal.name}`}
+                class="block h-full w-full overflow-hidden rounded-lg bg-white"
+              >
+                <img
+                  src={`/journals/${journal.image}`}
+                  alt={journal.name}
+                  class="h-full w-full object-cover transition-opacity hover:opacity-80"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-semibold leading-snug text-gray-900">
+                {journal.name}
+              </h3>
+              <p class="mt-2 text-sm font-medium text-blue-600">
+                {journal.ranking}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</main>
